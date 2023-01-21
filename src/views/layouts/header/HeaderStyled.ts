@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderStyled = styled.div`
-  padding: 20px 40px;
+  padding: 10px 40px;
   position: fixed;
   top: 0;
   z-index: 100;
@@ -15,6 +15,7 @@ export const HeaderStyled = styled.div`
     text-transform: uppercase;
     color: ${({ theme }) => theme.black_russian};
     transition: color 300ms;
+    font-size: 1.5rem;
 
     &:after {
       display: block;

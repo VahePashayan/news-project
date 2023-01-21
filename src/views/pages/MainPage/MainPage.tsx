@@ -1,32 +1,29 @@
+import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import { mainSelector } from "../../../store/main/mainSlice";
-import { incrementValue, decrementValue } from "../../../store/main/operations";
-import { Link } from "react-router-dom";
+import { getNewsList } from "../../../store/main/operations";
 
 import { MainPageStyled } from "./MainPageStyled";
+import { INews } from "../../../interfaces/interface";
+import MainCard from "../../components/MainCard/MainCard";
 
 export default function MainPage() {
   const dispatch = useAppDispatch();
-  const { value } = useAppSelector(mainSelector);
+  const { news } = useAppSelector(mainSelector);
+
+  useEffect(() => {
+    dispatch(getNewsList());
+  }, []);
   return (
     <MainPageStyled>
-      <Link to={"/news/25"}>
-        <button
-          aria-label="Increment value"
-          onClick={() => dispatch(incrementValue())}
-        >
-          Increment
-        </button>
-      </Link>
-      <span>{value}</span>
-      <Link to={"/news/25"}>
-        <button
-          aria-label="Decrement value"
-          onClick={() => dispatch(decrementValue())}
-        >
-          Decrement
-        </button>
-      </Link>
+      <h1>Latest news</h1>
+      <div className="main-card">
+        <MainCard />
+      </div>
+      {!!news.length &&
+        news.map((card: INews) => {
+          return <img src={card.image} alt="news_image" key={card.id} />;
+        })}
     </MainPageStyled>
   );
 }
