@@ -6,11 +6,13 @@ import { PayloadAction } from "@reduxjs/toolkit";
 export interface MainState {
   value: number;
   news: INews[];
+  mainCard: INews | null;
 }
 
 const initialState: MainState = {
   value: 0,
   news: [],
+  mainCard: null,
 };
 
 export const mainSlice = createSlice({
@@ -24,7 +26,10 @@ export const mainSlice = createSlice({
       state.value -= 1;
     },
     setNews: (state, action: PayloadAction<INews[]>) => {
-      state.news = action.payload;
+      let newsArray = action.payload;
+      state.mainCard = action.payload[0];
+      newsArray.shift();
+      state.news = newsArray;
     },
   },
 });
