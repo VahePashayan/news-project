@@ -1,28 +1,32 @@
-import React from "react";
-import { useAppDispatch, useAppSelector } from "./store/hooks";
-import { mainSelector } from "./store/main/mainSlice";
-import { incrementValue, decrementValue } from "./store/main/operations";
+import { Routes, Route } from "react-router-dom";
+import { AppRoutes } from "./AppRoutes";
+import GlobalStyle from "./styles/globalStyle";
+import { ThemeProvider } from "styled-components";
+import theme from "./styles/theme";
+import Header from "./views/layouts/header/Header";
 
 import "./App.css";
 
 function App() {
-  const dispatch = useAppDispatch();
-  const { value } = useAppSelector(mainSelector);
   return (
     <div className="App">
-      <button
-        aria-label="Increment value"
-        onClick={() => dispatch(incrementValue())}
-      >
-        Increment
-      </button>
-      <span>{value}</span>
-      <button
-        aria-label="Decrement value"
-        onClick={() => dispatch(decrementValue())}
-      >
-        Decrement
-      </button>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Header />
+        <div className="main-content">
+          <Routes>
+            {AppRoutes.map((route) => {
+              return (
+                <Route
+                  key={route.path}
+                  path={route.path}
+                  element={<route.component />}
+                />
+              );
+            })}
+          </Routes>
+        </div>
+      </ThemeProvider>
     </div>
   );
 }
