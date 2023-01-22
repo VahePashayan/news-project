@@ -11,6 +11,9 @@ export const NewsPageStyled = styled.div`
     margin-right: 50px;
     overflow: hidden;
     border-radius: 30px;
+    width: 640px;
+    height: 480px;
+    background-color: ${({theme}) => theme.black_hover};
   }
 
   .info-container {
@@ -59,5 +62,56 @@ export const NewsPageStyled = styled.div`
     h2 {
       color: ${({ theme }) => theme.white_heaven};
     }
+  }
+
+  @keyframes flickerAnimation {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-o-keyframes flickerAnimation {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-moz-keyframes flickerAnimation {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes flickerAnimation {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .animate-flicker {
+    -webkit-animation: flickerAnimation 0.5s infinite;
+    -moz-animation: flickerAnimation 0.5s infinite;
+    -o-animation: flickerAnimation 0.5s infinite;
+    animation: flickerAnimation 0.5s infinite;
   }
 `;
