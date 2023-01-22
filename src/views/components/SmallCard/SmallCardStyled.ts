@@ -13,7 +13,7 @@ export const SmallCardStyled = styled.div`
 
   img {
     width: 100%;
-    border-radius: 40px;
+    border-radius: 30px;
     overflow: hidden;
   }
 

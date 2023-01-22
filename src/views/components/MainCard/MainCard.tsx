@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from "../../../store/hooks";
+import { useAppSelector } from "../../../store/hooks";
 import { mainSelector } from "../../../store/main/mainSlice";
 import moment from "moment";
 import { Link } from "react-router-dom";
@@ -6,9 +6,7 @@ import { Link } from "react-router-dom";
 import { MainCardStyled } from "./MainCardStyled";
 
 export default function MainCard() {
-  const dispatch = useAppDispatch();
   const { mainCard } = useAppSelector(mainSelector);
-  console.log(mainCard?.createdAt && new Date(mainCard?.createdAt));
   return (
     <MainCardStyled>
       <Link to={`/news/${mainCard?.id}`}>

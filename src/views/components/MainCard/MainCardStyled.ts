@@ -6,7 +6,7 @@ export const MainCardStyled = styled.div`
   position: relative;
   transition: opacity 300ms;
   cursor: pointer;
-  border-radius: 40px;
+  border-radius: 30px;
   overflow: hidden;
 
   &:hover {
