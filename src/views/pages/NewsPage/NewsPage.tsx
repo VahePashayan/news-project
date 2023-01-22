@@ -6,8 +6,7 @@ import { getNewsCard, getCardComments } from "../../../store/news/operations";
 import moment from "moment";
 import CommentContainer from "../../components/CommentContainer/CommentContainer";
 import { IComment } from "../../../interfaces/interface";
-import useImageLoaded from "../../../hooks/useImageLoaded";
-import loading from "../../../assets/loading.gif";
+import DefaultImage from "../../components/DefaultImage/DefaultImage";
 
 import { NewsPageStyled } from "./NewsPageStyled";
 
@@ -15,8 +14,6 @@ export default function NewsPage() {
   const { id } = useParams();
   const dispatch = useAppDispatch();
   const { card, comments } = useAppSelector(newsSelector);
-
-  const { ref, loaded, onLoad } = useImageLoaded();
 
   useEffect(() => {
     if (id) {
@@ -29,12 +26,7 @@ export default function NewsPage() {
     <NewsPageStyled>
       <div className="card-info d-flex">
         <div className="image-container d-flex justify-center align-center">
-          <img
-            src={loaded ? card?.image : loading}
-            alt="card_image"
-            ref={ref}
-            onLoad={onLoad}
-          />
+          <DefaultImage image={card?.image || null} />
         </div>
         <div className="info-container">
           <h2>{card?.name}</h2>

@@ -13,8 +13,13 @@ export const MainCardStyled = styled.div`
     opacity: 0.7;
   }
 
-  img {
-    width: 100%;
+  a {
+    width: 1000px;
+    height: 754px;
+    background-color: ${({theme}) => theme.black_hover};
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .card-description {
