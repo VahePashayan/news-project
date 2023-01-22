@@ -4,6 +4,8 @@ import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import { newsSelector } from "../../../store/news/newsSlice";
 import { getNewsCard, getCardComments } from "../../../store/news/operations";
 import moment from "moment";
+import CommentContainer from "../../components/CommentContainer/CommentContainer";
+import { IComment } from "../../../interfaces/interface";
 
 import { NewsPageStyled } from "./NewsPageStyled";
 
@@ -42,11 +44,10 @@ export default function NewsPage() {
       <div className="card-comments">
         <h2>Comments</h2>
         <div className="comments-container">
-          {/* {!!comments?.length && comments.map((comment) => {
-            return(
-
-            )
-          })} */}
+          {!!comments?.length &&
+            comments.map((comment: IComment) => {
+              return <CommentContainer comment={comment} key={comment?.id} />;
+            })}
         </div>
       </div>
     </NewsPageStyled>

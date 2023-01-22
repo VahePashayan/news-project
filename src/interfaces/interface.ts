@@ -8,7 +8,7 @@ export interface INews {
   id: string;
 }
 
-export interface IComments {
+export interface IComment {
   createdAt: string;
   text: string;
   avatar: string;

@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
-import { INews, IComments } from "../../interfaces/interface";
+import { INews, IComment } from "../../interfaces/interface";
 import { PayloadAction } from "@reduxjs/toolkit";
 
 export interface NewsState {
   card: INews | null;
-  comments: IComments[] | null;
+  comments: IComment[] | null;
 }
 
 const initialState: NewsState = {
@@ -20,7 +20,7 @@ export const newsSlice = createSlice({
     setCard: (state, action: PayloadAction<INews>) => {
       state.card = action.payload;
     },
-    setComments: (state, action: PayloadAction<IComments[]>) => {
+    setComments: (state, action: PayloadAction<IComment[]>) => {
       state.comments = action.payload;
     },
   },

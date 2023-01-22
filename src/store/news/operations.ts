@@ -19,7 +19,7 @@ export const getCardComments =
   (id: string) => async (dispatch: AppDispatch) => {
     try {
       const cardCommentsData = await axios.get(
-        `https://63c652e7dcdc478e15bf1f66.mockapi.io/news/${id}/comments`
+        `https://63c652e7dcdc478e15bf1f66.mockapi.io/news/${id}/comments?sortBy=createdAt&order=desc`
       );
       if (cardCommentsData.status === 200) {
         dispatch(setComments(cardCommentsData.data));

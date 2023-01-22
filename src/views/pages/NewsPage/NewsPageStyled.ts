@@ -16,6 +16,7 @@ export const NewsPageStyled = styled.div`
   .info-container {
     color: ${({ theme }) => theme.white_heaven};
     text-align: left;
+    max-width: 800px;
   }
 
   h2 {
