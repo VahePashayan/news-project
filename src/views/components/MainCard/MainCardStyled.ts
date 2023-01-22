@@ -6,6 +6,8 @@ export const MainCardStyled = styled.div`
   position: relative;
   transition: opacity 300ms;
   cursor: pointer;
+  border-radius: 40px;
+  overflow: hidden;
 
   &:hover {
     opacity: 0.7;
@@ -16,7 +18,7 @@ export const MainCardStyled = styled.div`
   }
 
   .card-description {
-    color: ${({theme}) => theme.white_heaven};
+    color: ${({ theme }) => theme.white_heaven};
     width: 40%;
     padding: 30px;
     align-items: flex-start;
@@ -24,7 +26,7 @@ export const MainCardStyled = styled.div`
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.8);
     width: 100%;
-    border-top: 2px solid ${({theme}) => theme.yellow_beer};
+    border-top: 2px solid ${({ theme }) => theme.yellow_beer};
   }
 
   h3 {
@@ -35,9 +37,13 @@ export const MainCardStyled = styled.div`
 
   p {
     font-size: 1rem;
-    color: ${({theme}) => theme.yellow_beer};
+    color: ${({ theme }) => theme.yellow_beer};
     margin-bottom: 16px;
     text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 500px;
   }
 
   h4 {

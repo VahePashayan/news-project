@@ -5,6 +5,7 @@ export const MainPageStyled = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
 
   h1 {
     color: ${({ theme }) => theme.white_heaven};
@@ -15,6 +16,12 @@ export const MainPageStyled = styled.div`
   }
 
   .cards-container {
-    padding: 20px 250px;
+    width: 1000px;
+  }
+
+  .smallCards-container {
+    width: 100%;
+    margin-top: 30px;
+    flex-wrap: wrap;
   }
 `;
